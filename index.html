@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -66,6 +65,7 @@
       background: linear-gradient(to bottom, rgba(20,1,6,0.97) 80%, transparent);
       backdrop-filter: blur(6px);
       border-bottom: 1px solid rgba(201,168,76,0.1);
+      width: 100%;
     }
     .nav-logo {
       display: flex; align-items: center; gap: 0.85rem;
@@ -176,9 +176,10 @@
       box-shadow: 0 8px 28px rgba(37,211,102,0.3);
       transition: transform 0.3s, box-shadow 0.3s;
       opacity: 0; animation: fadeUp 1s 1.2s forwards;
+      white-space: nowrap;
     }
     .btn-wa:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(37,211,102,0.5); }
-    .btn-wa i { font-size: 1.3rem; }
+    .btn-wa i { font-size: 1.3rem; flex-shrink: 0; }
     .hero-scroll {
       position: absolute; bottom: 2.2rem; left: 50%; transform: translateX(-50%);
       display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
@@ -220,15 +221,17 @@
       background: linear-gradient(to bottom, var(--bordeaux-deep) 0%, #3D0812 50%, var(--bordeaux-deep) 100%);
     }
     .services-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.8rem; max-width: 1120px; margin: 0 auto;
     }
     .service-card {
       background: linear-gradient(155deg, rgba(139,0,0,0.18), rgba(30,3,10,0.7));
       border: 1px solid rgba(201,168,76,0.18);
-      border-radius: 16px; padding: 2.8rem 2rem 2.2rem;
+      border-radius: 16px; padding: 2.8rem 1.5rem 2.2rem;
       text-align: center; position: relative; overflow: hidden;
       transition: transform 0.35s, box-shadow 0.35s, border-color 0.35s;
+      display: flex; flex-direction: column; align-items: center;
     }
     .service-card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
@@ -245,10 +248,20 @@
       margin: 0 auto 1.4rem; font-size: 1.9rem; color: var(--or);
       box-shadow: 0 0 20px rgba(201,168,76,0.2);
       transition: box-shadow 0.3s, border-color 0.3s;
+      flex-shrink: 0;
     }
     .service-card:hover .service-icon-wrap { box-shadow: 0 0 35px rgba(201,168,76,0.45); border-color: rgba(201,168,76,0.5); }
-    .service-card h3 { font-family: 'Cinzel Decorative', serif; font-size: 1rem; color: var(--or); margin-bottom: 0.9rem; line-height: 1.4; }
-    .service-card p { font-size: 1rem; color: var(--creme-fonce); line-height: 1.75; font-style: italic; }
+    .service-card h3 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 0.95rem; color: var(--or);
+      margin-bottom: 0.9rem; line-height: 1.5;
+      word-break: break-word; width: 100%;
+    }
+    .service-card p {
+      font-size: 1rem; color: var(--creme-fonce);
+      line-height: 1.75; font-style: italic;
+      width: 100%;
+    }
 
     /* POURQUOI */
     #pourquoi {
@@ -257,10 +270,13 @@
       border-top: 1px solid rgba(201,168,76,0.12);
       border-bottom: 1px solid rgba(201,168,76,0.12);
     }
-    .avantages { display: flex; flex-wrap: wrap; gap: 2rem; max-width: 1000px; margin: 0 auto; justify-content: center; }
-    .avantage { flex: 1; min-width: 160px; max-width: 200px; text-align: center; }
+    .avantages {
+      display: flex; flex-wrap: wrap; gap: 2rem;
+      max-width: 1000px; margin: 0 auto; justify-content: center;
+    }
+    .avantage { flex: 1; min-width: 130px; max-width: 200px; text-align: center; }
     .avantage i { font-size: 2rem; color: var(--or); display: block; margin-bottom: 0.8rem; filter: drop-shadow(0 0 10px rgba(201,168,76,0.4)); }
-    .avantage strong { display: block; font-family: 'Cinzel Decorative', serif; font-size: 0.82rem; color: var(--creme); margin-bottom: 0.4rem; line-height: 1.4; }
+    .avantage strong { display: block; font-family: 'Cinzel Decorative', serif; font-size: 0.78rem; color: var(--creme); margin-bottom: 0.4rem; line-height: 1.5; }
     .avantage span { font-size: 0.9rem; color: var(--creme-fonce); font-style: italic; }
 
     /* ABOUT */
@@ -288,7 +304,7 @@
       border-radius: 0 10px 10px 0; margin-bottom: 2.5rem;
     }
     .about-stats { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-    .stat { background: rgba(139,0,0,0.15); border: 1px solid rgba(201,168,76,0.15); border-radius: 10px; padding: 1.2rem 1.5rem; text-align: center; flex: 1; min-width: 100px; }
+    .stat { background: rgba(139,0,0,0.15); border: 1px solid rgba(201,168,76,0.15); border-radius: 10px; padding: 1.2rem 1.5rem; text-align: center; flex: 1; min-width: 90px; }
     .stat .number { font-family: 'Cinzel Decorative', serif; font-size: 1.9rem; color: var(--or); display: block; text-shadow: 0 0 18px rgba(201,168,76,0.5); }
     .stat .label { font-family: 'Raleway', sans-serif; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: var(--creme-fonce); margin-top: 0.3rem; display: block; }
 
@@ -297,8 +313,15 @@
       position: relative; z-index: 1; padding: 7rem 2rem;
       background: linear-gradient(to bottom, #3D0812, var(--bordeaux-deep));
     }
-    .temoignages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.8rem; max-width: 1020px; margin: 0 auto; }
-    .temoignage { background: rgba(139,0,0,0.12); border: 1px solid rgba(201,168,76,0.15); border-radius: 14px; padding: 2.2rem; position: relative; overflow: hidden; }
+    .temoignages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem; max-width: 1020px; margin: 0 auto;
+    }
+    .temoignage {
+      background: rgba(139,0,0,0.12); border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 14px; padding: 2.2rem; position: relative; overflow: hidden;
+    }
     .temoignage::before { content: '\201C'; position: absolute; top: 0.5rem; left: 1.2rem; font-size: 5rem; color: rgba(201,168,76,0.08); font-family: Georgia, serif; line-height: 1; pointer-events: none; }
     .stars { display: flex; gap: 3px; margin-bottom: 1rem; }
     .stars i { color: var(--or); font-size: 0.9rem; }
@@ -323,21 +346,24 @@
     .cta-note i { color: var(--or); margin-right: 0.3rem; }
     .cta-note span { color: var(--or-clair); }
 
-    /* FOOTER */
-    footer { position: relative; z-index: 1; padding: 2.5rem 2rem; text-align: center; border-top: 1px solid rgba(201,168,76,0.12); font-family: 'Raleway', sans-serif; font-size: 0.78rem; color: var(--texte-clair); background: #1A0105; }
-    .footer-top { display: flex; align-items: center; justify-content: center; gap: 0.8rem; margin-bottom: 1.2rem; }
-    .footer-top img { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--or); object-fit: cover; }
-    .footer-top span { font-family: 'Cinzel Decorative', serif; font-size: 0.95rem; color: var(--or); }
-    .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
+    /* FOOTER — pleine largeur comme la navbar */
+    footer {
+      position: relative; z-index: 1;
+      width: 100%;
+      padding: 1rem 2rem;
+      border-top: 1px solid rgba(201,168,76,0.12);
+      background: #1A0105;
+      display: flex; align-items: center; justify-content: center;
+      gap: 1.2rem; flex-wrap: wrap;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.72rem; color: var(--texte-clair);
+    }
+    .footer-logo-img { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--or); object-fit: cover; flex-shrink: 0; }
+    .footer-name { font-family: 'Cinzel Decorative', serif; font-size: 0.8rem; color: var(--or); }
+    .footer-sep { opacity: 0.25; color: var(--or); }
     footer a { color: var(--or); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
-    footer{position:relative;z-index:1;padding:.9rem 2rem;border-top:1px solid rgba(201,168,76,.12);background:#1A0105;display:flex;align-items:center;justify-content:center;gap:1.2rem;flex-wrap:wrap;font-family:'Raleway',sans-serif;font-size:.72rem;color:var(--texte-clair)}
-    .footer-logo-img{width:28px;height:28px;border-radius:50%;border:1px solid var(--or);object-fit:cover;flex-shrink:0}
-    .footer-name{font-family:'Cinzel Decorative',serif;font-size:.8rem;color:var(--or)}
-    .footer-sep{opacity:.25;color:var(--or)}
-    footer a{color:var(--or);text-decoration:none}
-    footer a:hover{text-decoration:underline}
-    footer .copy{opacity:.4}
+    footer .copy { opacity: 0.4; }
 
     /* WA FLOTTANT */
     .wa-float {
@@ -355,10 +381,115 @@
       50%      { box-shadow: 0 6px 40px rgba(37,211,102,0.7), 0 0 0 12px rgba(37,211,102,0.08); }
     }
 
+    /* ===================== RESPONSIVE MOBILE ===================== */
     @media (max-width: 768px) {
-      nav { padding: 0.7rem 1.2rem; }
-      .nav-links { display: none; }
-      .about-wrap { flex-direction: column; gap: 2rem; align-items: center; }
+      nav {
+        padding: 0.7rem 1.2rem;
+      }
+      .nav-links {
+        display: none;
+      }
+
+      /* Hero */
+      #hero {
+        padding: 6rem 1.2rem 4rem;
+      }
+      .hero-eyebrow {
+        font-size: 0.62rem;
+        letter-spacing: 2px;
+      }
+      .hero-badge {
+        font-size: 0.62rem;
+        letter-spacing: 1.5px;
+        padding: 0.5rem 1rem;
+        text-align: center;
+      }
+      .btn-wa {
+        font-size: 0.85rem;
+        padding: 0.9rem 1.6rem;
+        white-space: normal;
+        text-align: center;
+        justify-content: center;
+      }
+
+      /* Services — 1 colonne sur mobile */
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .service-card {
+        padding: 2rem 1.2rem 1.8rem;
+      }
+      .service-card h3 {
+        font-size: 0.9rem;
+      }
+
+      /* Avantages — 2 par ligne */
+      .avantages {
+        gap: 1.2rem;
+      }
+      .avantage {
+        min-width: 120px;
+        flex: 0 0 calc(50% - 0.6rem);
+        max-width: none;
+      }
+      .avantage strong {
+        font-size: 0.72rem;
+      }
+
+      /* About */
+      .about-wrap {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+      }
+      .about-portrait-side {
+        flex: none;
+      }
+      .about-text-side blockquote {
+        padding: 1rem 1.2rem;
+        font-size: 1rem;
+      }
+      .about-stats {
+        gap: 0.8rem;
+      }
+      .stat {
+        padding: 1rem;
+        min-width: 80px;
+      }
+      .stat .number {
+        font-size: 1.5rem;
+      }
+
+      /* Témoignages — 1 colonne */
+      .temoignages-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Contact */
+      #contact {
+        padding: 5rem 1.2rem;
+      }
+      #contact .sub {
+        font-size: 1rem;
+      }
+
+      /* Footer mobile */
+      footer {
+        flex-direction: column;
+        gap: 0.6rem;
+        text-align: center;
+        padding: 1.2rem 1rem;
+      }
+      .footer-sep {
+        display: none;
+      }
+      .footer-links-row {
+        display: flex;
+        gap: 1.2rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
     }
   </style>
 </head>
@@ -386,8 +517,7 @@
 <!-- HERO -->
 <section id="hero">
   <p class="hero-eyebrow">✦ Voyant & Marabout Africain — Spécialiste France ✦</p>
-      <img class="hero-logo-img" src="sss.jpeg" alt="">
-
+  <img class="hero-logo-img" src="sss.jpeg" alt="">
   <h1>Retour d'Affection<br><em>Rapide & Garanti</em></h1>
   <p class="hero-sub">Retrouvez l'être aimé grâce aux forces spirituelles ancestrales</p>
   <div class="hero-badge"><i class="bi bi-geo-alt-fill"></i> INTERVENTION DANS TOUTE LE PAYS</div>
@@ -436,7 +566,7 @@
     <div class="avantage"><i class="bi bi-lock-fill"></i><strong>100% Discret</strong><span>Confidentialité absolue</span></div>
     <div class="avantage"><i class="bi bi-telephone-fill"></i><strong>Disponible 7j/7</strong><span>Consultation à distance</span></div>
     <div class="avantage"><i class="bi bi-patch-check-fill"></i><strong>Résultats Garantis</strong><span>20 ans d'expérience</span></div>
-    <div class="avantage"><i class="bi bi-geo-alt-fill"></i><strong>Toute lE PAYS</strong><span>FRANCE, CANADA, BELGIQUE…</span></div>
+    <div class="avantage"><i class="bi bi-geo-alt-fill"></i><strong>Toute le Pays</strong><span>France, Canada, Belgique…</span></div>
   </div>
 </section>
 
@@ -450,7 +580,7 @@
   <div class="about-wrap">
     <div class="about-portrait-side">
       <div class="portrait-ring">
-    <img class="nav-logo-img" src="sss.jpeg" alt="">
+        <img src="sss.jpeg" alt="Maître Séraphin">
       </div>
       <div class="about-name">Maître Séraphin</div>
       <div class="about-title">Voyant · Marabout · Guérisseur</div>
@@ -491,33 +621,46 @@
       <div class="auteur">Sophie & Marc, Bordeaux</div>
     </div>
   </div>
-  
-  <!-- CONTACT -->
-  <section id="contact">
-      <img class="contact-logo" src="sss.jpeg" alt="">
-      <h2>Contactez Maître Séraphin</h2>
-      <p class="sub">Prêt à retrouver l'amour ? Contactez-moi pour une consultation gratuite sur WhatsApp.</p>
-      <a class="btn-wa" href="https://wa.me/22898191326?text=Bonjour%2C%20je%20vous%20contacte%20pour%20un%20retour%20d%27affection.%20Pouvez-vous%20m%27en%20dire%20plus%20sur%20vos%20services%20%3F" target="_blank">
-          <i class="bi bi-whatsapp"></i> Consultation Gratuite sur WhatsApp
-        </a>
-        <div class="cta-note"><i class="bi bi-shield-lock-fill"></i><span>100% Discret & Confidentialité Absolue</span></div>
-    </section>
-    
-    <section>
-        <footer>
-            <img class="footer-logo-img" src="sss.jpeg" alt="">
-            <span class="footer-name">Maître Séraphin</span>
-            <span class="footer-sep">|</span>
-            <a href="#">Mentions légales</a>
-            <span class="footer-sep">|</span>
-            <a href="#">Confidentialité</a>
-            <span class="footer-sep">|</span>
-            <span class="copy">© 2025 Tous droits réservés</span>
-        </footer>
-        
-        <a class="wa-float" href="https://wa.me/22898191326?text=Bonjour%2C%20je%20vous%20contacte%20pour%20un%20retour%20d%27affection.%20Pouvez-vous%20m%27en%20dire%20plus%20sur%20vos%20services%20%3F" target="_blank" title="WhatsApp">
-            <i class="bi bi-whatsapp"></i>
-        </a>
-        
-    </section>
-    </section>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <img class="contact-logo" src="sss.jpeg" alt="">
+  <h2>Contactez Maître Séraphin</h2>
+  <p class="sub">Prêt à retrouver l'amour ? Contactez-moi pour une consultation gratuite sur WhatsApp.</p>
+  <a class="btn-wa" href="https://wa.me/22898191326?text=Bonjour%2C%20je%20vous%20contacte%20pour%20un%20retour%20d%27affection.%20Pouvez-vous%20m%27en%20dire%20plus%20sur%20vos%20services%20%3F" target="_blank">
+    <i class="bi bi-whatsapp"></i> Consultation Gratuite sur WhatsApp
+  </a>
+  <div class="cta-note"><i class="bi bi-shield-lock-fill"></i><span>100% Discret & Confidentialité Absolue</span></div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img class="footer-logo-img" src="sss.jpeg" alt="">
+  <span class="footer-name">Maître Séraphin</span>
+  <span class="footer-sep">|</span>
+  <div class="footer-links-row">
+    <a href="#">Mentions légales</a>
+    <span class="footer-sep">|</span>
+    <a href="#">Confidentialité</a>
+  </div>
+  <span class="footer-sep">|</span>
+  <span class="copy">© 2025 Tous droits réservés</span>
+</footer>
+
+<!-- WA FLOTTANT -->
+<a class="wa-float" href="https://wa.me/22898191326?text=Bonjour%2C%20je%20vous%20contacte%20pour%20un%20retour%20d%27affection.%20Pouvez-vous%20m%27en%20dire%20plus%20sur%20vos%20services%20%3F" target="_blank" title="WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<script>
+  const bg = document.getElementById('candles');
+  for (let i = 0; i < 18; i++) {
+    const c = document.createElement('div');
+    c.className = 'candle';
+    c.style.cssText = `left:${Math.random()*100}%;--dur:${3+Math.random()*3}s;--rise:${10+Math.random()*10}s;animation-delay:${Math.random()*12}s`;
+    bg.appendChild(c);
+  }
+</script>
+</body>
+</html>
